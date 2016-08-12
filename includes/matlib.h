@@ -57,7 +57,7 @@ inline t_vec3	v3_norm(t_vec3 v);
 inline t_vec3	v3_proj(t_vec3 v, t_vec3 onto);
 inline t_vec3	v3_cross(t_vec3 a, t_vec3 b);
 inline t_vec3	v3_mul(t_vec3 a, t_vec3 b);
-inline t_vec3	v3_mul(t_vec3 a, t_vec3 b);
+inline t_vec3	v3_muls(t_vec3 a, float s);
 inline t_vec3	v3_div(t_vec3 a, t_vec3 b);
 inline t_vec3	v3_divs(t_vec3 a, float s);
 inline float	v3_angle_between(t_vec3 a, t_vec3 b);
@@ -98,16 +98,4 @@ void			m4_fprint(FILE* stream, t_mat4 matrix);
 void 			m4_fprintp(FILE* stream, t_mat4 matrix,
 						   int width, int precision);
 
-/**
- * Matrix functions header implementation
- */
-
 #endif /* MATLIB_H */
-
-
-#ifdef MATH_3D_IMPLEMENTATION
-
-
-
-
-#endif /* MATH_3D_IMPLEMENTATION */
