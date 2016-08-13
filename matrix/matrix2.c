@@ -12,7 +12,7 @@
 
 #include "../includes/matlib.h"
 
-inline t_mat4		m4_rotation_x(float angle_in_rad)
+t_mat4		m4_rotation_x(float angle_in_rad)
 {
 	float	s;
 	float	c;
@@ -27,7 +27,7 @@ inline t_mat4		m4_rotation_x(float angle_in_rad)
 				 ));
 }
 
-inline t_mat4		m4_rotation_y(float angle_in_rad)
+t_mat4		m4_rotation_y(float angle_in_rad)
 {
 	float	s;
 	float	c;
@@ -42,7 +42,7 @@ inline t_mat4		m4_rotation_y(float angle_in_rad)
 				 ));
 }
 
-inline t_mat4		m4_rotation_z(float angle_in_rad)
+t_mat4		m4_rotation_z(float angle_in_rad)
 {
 	float	s;
 	float	c;
@@ -57,7 +57,7 @@ inline t_mat4		m4_rotation_z(float angle_in_rad)
 				 ));
 }
 
-inline t_mat4		m4_transpose(t_mat4 matrix)
+t_mat4		m4_transpose(t_mat4 matrix)
 {
 	return (mat4(
 				 matrix.m00, matrix.m01, matrix.m02, matrix.m03,
@@ -67,7 +67,7 @@ inline t_mat4		m4_transpose(t_mat4 matrix)
 				 ));
 }
 
-inline t_mat4		m4_mul(t_mat4 a, t_mat4 b)
+t_mat4		m4_mul(t_mat4 a, t_mat4 b)
 {
 	t_mat4 result;
 	int 	i;

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/matlib.h"
+#include "../includes/matlib.h"
 
 void 					m4_print(t_mat4 matrix)
 {

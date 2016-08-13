@@ -26,9 +26,9 @@ t_mat4		m4_rotation(float angle_in_rad, t_vec3 axis)
 	c = cosf(angle_in_rad);
 	s = sinf(angle_in_rad);
 	return (mat4(
-	c + x * x * (1 - c), x * y * (1 - c) - z * s, x * z * (1 - c) + y * s, 0,
-	y * x * (1 - c) + z * s,  c + y * y * (1 - c), y * z * (1 - c) - x * s, 0,
-	z* x * (1 - c) - y * s, z * y * (1 - c) + x * s,  c + z * z * (1 - c), 0,
+	c + xyz.x * xyz.x * (1 - c), xyz.x * xyz.y * (1 - c) - xyz.z * s, xyz.x * xyz.z * (1 - c) + xyz.y * s, 0,
+	xyz.y * xyz.x * (1 - c) + xyz.z * s,  c + xyz.y * xyz.y * (1 - c), xyz.y * xyz.z * (1 - c) - xyz.x * s, 0,
+	xyz.z* xyz.x * (1 - c) - xyz.y * s, xyz.z * xyz.y * (1 - c) + xyz.x * s,  c + xyz.z * xyz.z * (1 - c), 0,
 	0, 0, 0, 1
 	));
 }
@@ -37,7 +37,7 @@ t_mat4		m4_ortho(float left, float right, float bottom, float top, float back, f
 {
 	//float l = left, r = right, b = bottom, t = top, n = front, f = back;
 	float tx = -(right + left) / (right - left);
-	float ty = -(topo + bottom) / (top - bottom);
+	float ty = -(top + bottom) / (top - bottom);
 	float tz = -(back + front) / (back - front);
 
 	return (mat4(
@@ -61,7 +61,8 @@ t_mat4		m4_perspective(float vertical_field_of_view_in_deg,
 	fovy_in_rad = vertical_field_of_view_in_deg / 180 * M_PI;
 	f = 1.0f / tanf(fovy_in_rad / 2.0f);
 	ar = aspect_ratio;
-	nd = near_view_distance, fd = far_view_distance;
+	nd = near_view_distance;
+	float fd = far_view_distance;
 	return (mat4(
 				 f / ar, 0, 0, 0,
 				 0, f, 0, 0,
@@ -87,12 +88,12 @@ t_mat4		m4_look_at(t_vec3 from, t_vec3 to, t_vec3 up)
 				 ));
 }
 
-t_mat4		m4_invert_affine(t_mat4 matrix)
+/*t_mat4		m4_invert_affine(t_mat4 matrix)
 {
 	// Create shorthands to access matrix members
-	/*float m00 = matrix.m00,  m10 = matrix.m10,  m20 = matrix.m20,  m30 = matrix.m30;
+	float m00 = matrix.m00,  m10 = matrix.m10,  m20 = matrix.m20,  m30 = matrix.m30;
 	 float m01 = matrix.m01,  m11 = matrix.m11,  m21 = matrix.m21,  m31 = matrix.m31;
-	 float m02 = matrix.m02,  m12 = matrix.m12,  m22 = matrix.m22,  m32 = matrix.m32;*/
+	 float m02 = matrix.m02,  m12 = matrix.m12,  m22 = matrix.m22,  m32 = matrix.m32;
 
 	float 	c00;
 	float 	c10;
@@ -139,4 +140,4 @@ t_mat4		m4_invert_affine(t_mat4 matrix)
 				 i02, i12, i22,  -(i02*m30 + i12*m31 + i22*m32),
 				 0,   0,   0,      1
 				 ));
-}
+}*/

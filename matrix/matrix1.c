@@ -12,7 +12,7 @@
 
 #include "../includes/matlib.h"
 
-inline t_mat4		mat4(
+t_mat4		mat4(
 					 float m00, float m10, float m20, float m30,
 					 float m01, float m11, float m21, float m31,
 					 float m02, float m12, float m22, float m32,
@@ -28,7 +28,7 @@ inline t_mat4		mat4(
 			});
 }
 
-inline t_mat4		m4_identity()
+t_mat4		m4_identity()
 {
 	return (mat4(
 				 1,  0,  0,  0,
@@ -38,7 +38,7 @@ inline t_mat4		m4_identity()
 				 ));
 }
 
-inline t_mat4		m4_translation(t_vec3 offset)
+t_mat4		m4_translation(t_vec3 offset)
 {
 	return (mat4(
 				 1,  0,  0,  offset.x,
@@ -48,7 +48,7 @@ inline t_mat4		m4_translation(t_vec3 offset)
 				 ));
 }
 
-inline t_mat4		m4_scaling(t_vec3 scale)
+t_mat4		m4_scaling(t_vec3 scale)
 {
 	float	x;
 	float	y;
